@@ -54,9 +54,11 @@ def extract_plain_text_sync(html_content):
 async def get_target_ids():
     raw_db = db.client[db.db.name]
 
+    # "in": {"$in": ["0100", "0230", "0300", "0400"]},
+
     query = {
         "actual": True,
-        "in": {"$in": ["0100", "0230", "0300", "0400"]},
+        "in": {"$in": ["0200"]},
         "st": {"$in": ["upd", "new"]},
         "lg": {"$in": ["rus", "kaz"]}
     }

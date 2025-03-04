@@ -1,0 +1,594 @@
+2025-03-04 20:02:38,971 - __main__ - INFO - Device: cuda
+2025-03-04 20:02:38,971 - __main__ - INFO - Optimal batch sizes: Documents: 48, Chunks: 48, Embeddings: 28
+2025-03-04 20:02:38,971 - __main__ - INFO - Initial memory usage: 459.25 MB
+2025-03-04 20:02:42,462 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-03-04 20:03:47,592 - __main__ - INFO - Starting target documents vectorization process on cuda...
+2025-03-04 20:03:47,594 - __main__ - INFO - Initial memory usage: 1113.18 MB
+2025-03-04 20:03:47,871 - __main__ - INFO - Text index already exists
+2025-03-04 20:03:47,871 - __main__ - INFO - _id index already exists
+2025-03-04 20:03:48,020 - __main__ - INFO - Total target documents to process: 6783
+2025-03-04 20:03:48,335 - __main__ - INFO - Processed 48/6783 documents (0.71%)
+2025-03-04 20:03:48,336 - __main__ - INFO - Processed 96/6783 documents (1.42%)
+2025-03-04 20:03:48,576 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:03:48,577 - __main__ - INFO - Memory before vector store creation: 1404.28 MB
+2025-03-04 20:03:48,578 - __main__ - INFO - Memory after vector store creation: 1404.28 MB
+2025-03-04 20:03:48,834 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:03:48,834 - __main__ - INFO - Memory before vector store creation: 1420.16 MB
+2025-03-04 20:03:48,834 - __main__ - INFO - Memory after vector store creation: 1420.16 MB
+2025-03-04 20:03:48,970 - __main__ - INFO - Processed 144/6783 documents (2.12%)
+2025-03-04 20:03:48,970 - __main__ - INFO - Processed 192/6783 documents (2.83%)
+2025-03-04 20:03:48,970 - __main__ - INFO - Processed 240/6783 documents (3.54%)
+2025-03-04 20:03:48,970 - __main__ - INFO - Processed 288/6783 documents (4.25%)
+2025-03-04 20:03:48,971 - __main__ - INFO - Processed 336/6783 documents (4.95%)
+2025-03-04 20:03:48,971 - __main__ - INFO - Processed 384/6783 documents (5.66%)
+2025-03-04 20:03:48,971 - __main__ - INFO - Processed 432/6783 documents (6.37%)
+2025-03-04 20:03:48,971 - __main__ - INFO - Processed 480/6783 documents (7.08%)
+2025-03-04 20:03:52,093 - __main__ - INFO - Creating vector store with 36 embeddings
+2025-03-04 20:03:52,093 - __main__ - INFO - Memory before vector store creation: 1461.85 MB
+2025-03-04 20:03:52,095 - __main__ - INFO - Memory after vector store creation: 1462.11 MB
+2025-03-04 20:03:52,556 - __main__ - INFO - Creating vector store with 4 embeddings
+2025-03-04 20:03:52,556 - __main__ - INFO - Memory before vector store creation: 1466.58 MB
+2025-03-04 20:03:52,557 - __main__ - INFO - Memory after vector store creation: 1466.58 MB
+2025-03-04 20:03:52,751 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:03:52,752 - __main__ - INFO - Memory before vector store creation: 1466.63 MB
+2025-03-04 20:03:52,752 - __main__ - INFO - Memory after vector store creation: 1466.63 MB
+2025-03-04 20:03:53,637 - __main__ - INFO - Creating vector store with 9 embeddings
+2025-03-04 20:03:53,637 - __main__ - INFO - Memory before vector store creation: 1466.74 MB
+2025-03-04 20:03:53,638 - __main__ - INFO - Memory after vector store creation: 1466.74 MB
+2025-03-04 20:03:54,746 - __main__ - INFO - Creating vector store with 12 embeddings
+2025-03-04 20:03:54,747 - __main__ - INFO - Memory before vector store creation: 1466.78 MB
+2025-03-04 20:03:54,747 - __main__ - INFO - Memory after vector store creation: 1466.78 MB
+2025-03-04 20:03:55,090 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:03:55,090 - __main__ - INFO - Memory before vector store creation: 1466.78 MB
+2025-03-04 20:03:55,091 - __main__ - INFO - Memory after vector store creation: 1466.78 MB
+2025-03-04 20:04:02,264 - __main__ - INFO - Creating vector store with 88 embeddings
+2025-03-04 20:04:02,264 - __main__ - INFO - Memory before vector store creation: 1471.12 MB
+2025-03-04 20:04:02,269 - __main__ - INFO - Memory after vector store creation: 1471.63 MB
+2025-03-04 20:04:02,866 - __main__ - INFO - Creating vector store with 7 embeddings
+2025-03-04 20:04:02,867 - __main__ - INFO - Memory before vector store creation: 1471.63 MB
+2025-03-04 20:04:02,867 - __main__ - INFO - Memory after vector store creation: 1471.63 MB
+2025-03-04 20:04:03,015 - __main__ - INFO - Processed 528/6783 documents (7.78%)
+2025-03-04 20:04:03,015 - __main__ - INFO - Processed 576/6783 documents (8.49%)
+2025-03-04 20:04:03,015 - __main__ - INFO - Processed 624/6783 documents (9.20%)
+2025-03-04 20:04:03,016 - __main__ - INFO - Processed 672/6783 documents (9.91%)
+2025-03-04 20:04:03,016 - __main__ - INFO - Processed 720/6783 documents (10.61%)
+2025-03-04 20:04:03,016 - __main__ - INFO - Processed 768/6783 documents (11.32%)
+2025-03-04 20:04:03,284 - __main__ - INFO - Creating vector store with 4 embeddings
+2025-03-04 20:04:03,284 - __main__ - INFO - Memory before vector store creation: 1477.77 MB
+2025-03-04 20:04:03,285 - __main__ - INFO - Memory after vector store creation: 1477.77 MB
+2025-03-04 20:04:09,628 - __main__ - INFO - Creating vector store with 74 embeddings
+2025-03-04 20:04:09,629 - __main__ - INFO - Memory before vector store creation: 1480.36 MB
+2025-03-04 20:04:09,633 - __main__ - INFO - Memory after vector store creation: 1481.13 MB
+2025-03-04 20:04:11,155 - __main__ - INFO - Creating vector store with 17 embeddings
+2025-03-04 20:04:11,156 - __main__ - INFO - Memory before vector store creation: 1481.13 MB
+2025-03-04 20:04:11,157 - __main__ - INFO - Memory after vector store creation: 1481.13 MB
+2025-03-04 20:04:18,724 - __main__ - INFO - Creating vector store with 88 embeddings
+2025-03-04 20:04:18,725 - __main__ - INFO - Memory before vector store creation: 1481.97 MB
+2025-03-04 20:04:18,729 - __main__ - INFO - Memory after vector store creation: 1482.48 MB
+2025-03-04 20:04:21,951 - __main__ - INFO - Creating vector store with 36 embeddings
+2025-03-04 20:04:21,951 - __main__ - INFO - Memory before vector store creation: 1482.48 MB
+2025-03-04 20:04:21,953 - __main__ - INFO - Memory after vector store creation: 1482.74 MB
+2025-03-04 20:04:22,197 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:04:22,198 - __main__ - INFO - Memory before vector store creation: 1482.74 MB
+2025-03-04 20:04:22,198 - __main__ - INFO - Memory after vector store creation: 1482.74 MB
+2025-03-04 20:04:22,336 - __main__ - INFO - Processed 816/6783 documents (12.03%)
+2025-03-04 20:04:22,336 - __main__ - INFO - Processed 864/6783 documents (12.74%)
+2025-03-04 20:04:22,336 - __main__ - INFO - Processed 912/6783 documents (13.45%)
+2025-03-04 20:04:22,336 - __main__ - INFO - Processed 960/6783 documents (14.15%)
+2025-03-04 20:04:22,337 - __main__ - INFO - Processed 1008/6783 documents (14.86%)
+2025-03-04 20:04:22,337 - __main__ - INFO - Processed 1056/6783 documents (15.57%)
+2025-03-04 20:04:22,337 - __main__ - INFO - Processed 1104/6783 documents (16.28%)
+2025-03-04 20:04:22,337 - __main__ - INFO - Processed 1152/6783 documents (16.98%)
+2025-03-04 20:04:22,337 - __main__ - INFO - Processed 1200/6783 documents (17.69%)
+2025-03-04 20:04:23,233 - __main__ - INFO - Creating vector store with 11 embeddings
+2025-03-04 20:04:23,233 - __main__ - INFO - Memory before vector store creation: 1484.55 MB
+2025-03-04 20:04:23,234 - __main__ - INFO - Memory after vector store creation: 1484.55 MB
+2025-03-04 20:04:23,513 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:04:23,513 - __main__ - INFO - Memory before vector store creation: 1484.55 MB
+2025-03-04 20:04:23,514 - __main__ - INFO - Memory after vector store creation: 1484.55 MB
+2025-03-04 20:04:24,138 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:04:24,138 - __main__ - INFO - Memory before vector store creation: 1484.55 MB
+2025-03-04 20:04:24,138 - __main__ - INFO - Memory after vector store creation: 1484.55 MB
+2025-03-04 20:04:25,823 - __main__ - INFO - Creating vector store with 21 embeddings
+2025-03-04 20:04:25,823 - __main__ - INFO - Memory before vector store creation: 1484.55 MB
+2025-03-04 20:04:25,824 - __main__ - INFO - Memory after vector store creation: 1484.80 MB
+2025-03-04 20:04:26,035 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:04:26,036 - __main__ - INFO - Memory before vector store creation: 1484.80 MB
+2025-03-04 20:04:26,036 - __main__ - INFO - Memory after vector store creation: 1484.80 MB
+2025-03-04 20:04:27,036 - __main__ - INFO - Creating vector store with 11 embeddings
+2025-03-04 20:04:27,036 - __main__ - INFO - Memory before vector store creation: 1484.80 MB
+2025-03-04 20:04:27,037 - __main__ - INFO - Memory after vector store creation: 1484.80 MB
+2025-03-04 20:04:27,589 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:04:27,590 - __main__ - INFO - Memory before vector store creation: 1484.80 MB
+2025-03-04 20:04:27,590 - __main__ - INFO - Memory after vector store creation: 1484.80 MB
+2025-03-04 20:04:31,680 - __main__ - INFO - Creating vector store with 48 embeddings
+2025-03-04 20:04:31,680 - __main__ - INFO - Memory before vector store creation: 1484.95 MB
+2025-03-04 20:04:31,682 - __main__ - INFO - Memory after vector store creation: 1485.46 MB
+2025-03-04 20:04:32,005 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:04:32,005 - __main__ - INFO - Memory before vector store creation: 1485.46 MB
+2025-03-04 20:04:32,006 - __main__ - INFO - Memory after vector store creation: 1485.46 MB
+2025-03-04 20:04:32,148 - __main__ - INFO - Processed 1248/6783 documents (18.40%)
+2025-03-04 20:04:32,148 - __main__ - INFO - Processed 1296/6783 documents (19.11%)
+2025-03-04 20:04:32,149 - __main__ - INFO - Processed 1344/6783 documents (19.81%)
+2025-03-04 20:04:32,149 - __main__ - INFO - Processed 1392/6783 documents (20.52%)
+2025-03-04 20:04:32,149 - __main__ - INFO - Processed 1440/6783 documents (21.23%)
+2025-03-04 20:04:33,612 - __main__ - INFO - Creating vector store with 23 embeddings
+2025-03-04 20:04:33,612 - __main__ - INFO - Memory before vector store creation: 1501.69 MB
+2025-03-04 20:04:33,614 - __main__ - INFO - Memory after vector store creation: 1501.69 MB
+2025-03-04 20:04:34,254 - __main__ - INFO - Creating vector store with 7 embeddings
+2025-03-04 20:04:34,254 - __main__ - INFO - Memory before vector store creation: 1501.69 MB
+2025-03-04 20:04:34,255 - __main__ - INFO - Memory after vector store creation: 1501.69 MB
+2025-03-04 20:04:34,842 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:04:34,842 - __main__ - INFO - Memory before vector store creation: 1501.69 MB
+2025-03-04 20:04:34,843 - __main__ - INFO - Memory after vector store creation: 1501.69 MB
+2025-03-04 20:04:35,362 - __main__ - INFO - Creating vector store with 4 embeddings
+2025-03-04 20:04:35,362 - __main__ - INFO - Memory before vector store creation: 1501.69 MB
+2025-03-04 20:04:35,362 - __main__ - INFO - Memory after vector store creation: 1501.69 MB
+2025-03-04 20:04:35,887 - __main__ - INFO - Creating vector store with 4 embeddings
+2025-03-04 20:04:35,888 - __main__ - INFO - Memory before vector store creation: 1501.95 MB
+2025-03-04 20:04:35,888 - __main__ - INFO - Memory after vector store creation: 1501.95 MB
+2025-03-04 20:04:36,031 - __main__ - INFO - Processed 1488/6783 documents (21.94%)
+2025-03-04 20:04:36,032 - __main__ - INFO - Processed 1536/6783 documents (22.64%)
+2025-03-04 20:04:36,032 - __main__ - INFO - Processed 1584/6783 documents (23.35%)
+2025-03-04 20:04:36,032 - __main__ - INFO - Processed 1632/6783 documents (24.06%)
+2025-03-04 20:04:36,032 - __main__ - INFO - Processed 1680/6783 documents (24.77%)
+2025-03-04 20:04:36,032 - __main__ - INFO - Processed 1728/6783 documents (25.48%)
+2025-03-04 20:04:36,033 - __main__ - INFO - Processed 1776/6783 documents (26.18%)
+2025-03-04 20:04:37,549 - __main__ - INFO - Creating vector store with 4 embeddings
+2025-03-04 20:04:37,549 - __main__ - INFO - Memory before vector store creation: 1524.89 MB
+2025-03-04 20:04:37,550 - __main__ - INFO - Memory after vector store creation: 1524.89 MB
+2025-03-04 20:04:38,908 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:04:38,909 - __main__ - INFO - Memory before vector store creation: 1534.69 MB
+2025-03-04 20:04:38,909 - __main__ - INFO - Memory after vector store creation: 1534.69 MB
+2025-03-04 20:04:40,710 - __main__ - INFO - Creating vector store with 14 embeddings
+2025-03-04 20:04:40,710 - __main__ - INFO - Memory before vector store creation: 1539.71 MB
+2025-03-04 20:04:40,711 - __main__ - INFO - Memory after vector store creation: 1539.71 MB
+2025-03-04 20:04:47,311 - __main__ - INFO - Creating vector store with 95 embeddings
+2025-03-04 20:04:47,311 - __main__ - INFO - Memory before vector store creation: 1549.57 MB
+2025-03-04 20:04:47,316 - __main__ - INFO - Memory after vector store creation: 1549.57 MB
+2025-03-04 20:04:50,389 - __main__ - INFO - Creating vector store with 16 embeddings
+2025-03-04 20:04:50,389 - __main__ - INFO - Memory before vector store creation: 1563.00 MB
+2025-03-04 20:04:50,390 - __main__ - INFO - Memory after vector store creation: 1563.00 MB
+2025-03-04 20:04:53,699 - __main__ - INFO - Creating vector store with 21 embeddings
+2025-03-04 20:04:53,700 - __main__ - INFO - Memory before vector store creation: 1577.81 MB
+2025-03-04 20:04:53,701 - __main__ - INFO - Memory after vector store creation: 1577.81 MB
+2025-03-04 20:04:58,108 - __main__ - INFO - Creating vector store with 29 embeddings
+2025-03-04 20:04:58,108 - __main__ - INFO - Memory before vector store creation: 1586.86 MB
+2025-03-04 20:04:58,110 - __main__ - INFO - Memory after vector store creation: 1586.86 MB
+2025-03-04 20:04:58,261 - __main__ - INFO - Processed 1824/6783 documents (26.89%)
+2025-03-04 20:04:58,262 - __main__ - INFO - Processed 1872/6783 documents (27.60%)
+2025-03-04 20:04:58,262 - __main__ - INFO - Processed 1920/6783 documents (28.31%)
+2025-03-04 20:04:58,262 - __main__ - INFO - Processed 1968/6783 documents (29.01%)
+2025-03-04 20:04:58,262 - __main__ - INFO - Processed 2016/6783 documents (29.72%)
+2025-03-04 20:04:58,263 - __main__ - INFO - Processed 2064/6783 documents (30.43%)
+2025-03-04 20:04:58,263 - __main__ - INFO - Processed 2112/6783 documents (31.14%)
+2025-03-04 20:04:58,936 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:04:58,937 - __main__ - INFO - Memory before vector store creation: 1590.47 MB
+2025-03-04 20:04:58,937 - __main__ - INFO - Memory after vector store creation: 1590.47 MB
+2025-03-04 20:05:00,557 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:05:00,558 - __main__ - INFO - Memory before vector store creation: 1606.85 MB
+2025-03-04 20:05:00,558 - __main__ - INFO - Memory after vector store creation: 1606.85 MB
+2025-03-04 20:05:04,296 - __main__ - INFO - Creating vector store with 34 embeddings
+2025-03-04 20:05:04,296 - __main__ - INFO - Memory before vector store creation: 1609.95 MB
+2025-03-04 20:05:04,298 - __main__ - INFO - Memory after vector store creation: 1609.95 MB
+2025-03-04 20:05:05,825 - __main__ - INFO - Creating vector store with 22 embeddings
+2025-03-04 20:05:05,826 - __main__ - INFO - Memory before vector store creation: 1610.46 MB
+2025-03-04 20:05:05,827 - __main__ - INFO - Memory after vector store creation: 1610.46 MB
+2025-03-04 20:05:06,451 - __main__ - INFO - Creating vector store with 7 embeddings
+2025-03-04 20:05:06,452 - __main__ - INFO - Memory before vector store creation: 1613.04 MB
+2025-03-04 20:05:06,452 - __main__ - INFO - Memory after vector store creation: 1613.04 MB
+2025-03-04 20:05:06,951 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:05:06,952 - __main__ - INFO - Memory before vector store creation: 1614.33 MB
+2025-03-04 20:05:06,952 - __main__ - INFO - Memory after vector store creation: 1614.33 MB
+2025-03-04 20:05:08,015 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:05:08,016 - __main__ - INFO - Memory before vector store creation: 1624.90 MB
+2025-03-04 20:05:08,016 - __main__ - INFO - Memory after vector store creation: 1624.90 MB
+2025-03-04 20:05:08,155 - __main__ - INFO - Processed 2160/6783 documents (31.84%)
+2025-03-04 20:05:08,155 - __main__ - INFO - Processed 2208/6783 documents (32.55%)
+2025-03-04 20:05:08,155 - __main__ - INFO - Processed 2256/6783 documents (33.26%)
+2025-03-04 20:05:08,155 - __main__ - INFO - Processed 2304/6783 documents (33.97%)
+2025-03-04 20:05:08,155 - __main__ - INFO - Processed 2352/6783 documents (34.67%)
+2025-03-04 20:05:08,156 - __main__ - INFO - Processed 2400/6783 documents (35.38%)
+2025-03-04 20:05:09,275 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:05:09,275 - __main__ - INFO - Memory before vector store creation: 1624.34 MB
+2025-03-04 20:05:09,276 - __main__ - INFO - Memory after vector store creation: 1624.34 MB
+2025-03-04 20:05:09,616 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:05:09,616 - __main__ - INFO - Memory before vector store creation: 1626.66 MB
+2025-03-04 20:05:09,616 - __main__ - INFO - Memory after vector store creation: 1626.66 MB
+2025-03-04 20:05:12,260 - __main__ - INFO - Creating vector store with 14 embeddings
+2025-03-04 20:05:12,260 - __main__ - INFO - Memory before vector store creation: 1636.72 MB
+2025-03-04 20:05:12,261 - __main__ - INFO - Memory after vector store creation: 1636.72 MB
+2025-03-04 20:05:15,853 - __main__ - INFO - Creating vector store with 24 embeddings
+2025-03-04 20:05:15,853 - __main__ - INFO - Memory before vector store creation: 1657.34 MB
+2025-03-04 20:05:15,854 - __main__ - INFO - Memory after vector store creation: 1657.34 MB
+2025-03-04 20:05:18,390 - __main__ - INFO - Creating vector store with 19 embeddings
+2025-03-04 20:05:18,390 - __main__ - INFO - Memory before vector store creation: 1667.91 MB
+2025-03-04 20:05:18,391 - __main__ - INFO - Memory after vector store creation: 1667.91 MB
+2025-03-04 20:05:23,141 - __main__ - INFO - Creating vector store with 20 embeddings
+2025-03-04 20:05:23,142 - __main__ - INFO - Memory before vector store creation: 1693.50 MB
+2025-03-04 20:05:23,143 - __main__ - INFO - Memory after vector store creation: 1693.50 MB
+2025-03-04 20:05:23,290 - __main__ - INFO - Processed 2448/6783 documents (36.09%)
+2025-03-04 20:05:23,290 - __main__ - INFO - Processed 2496/6783 documents (36.80%)
+2025-03-04 20:05:23,290 - __main__ - INFO - Processed 2544/6783 documents (37.51%)
+2025-03-04 20:05:23,290 - __main__ - INFO - Processed 2592/6783 documents (38.21%)
+2025-03-04 20:05:23,291 - __main__ - INFO - Processed 2640/6783 documents (38.92%)
+2025-03-04 20:05:23,291 - __main__ - INFO - Processed 2688/6783 documents (39.63%)
+2025-03-04 20:05:23,291 - __main__ - INFO - Processed 2736/6783 documents (40.34%)
+2025-03-04 20:05:23,291 - __main__ - INFO - Processed 2784/6783 documents (41.04%)
+2025-03-04 20:05:30,406 - __main__ - INFO - Creating vector store with 25 embeddings
+2025-03-04 20:05:30,406 - __main__ - INFO - Memory before vector store creation: 1729.42 MB
+2025-03-04 20:05:30,408 - __main__ - INFO - Memory after vector store creation: 1729.42 MB
+2025-03-04 20:05:42,247 - __main__ - INFO - Creating vector store with 126 embeddings
+2025-03-04 20:05:42,248 - __main__ - INFO - Memory before vector store creation: 1760.46 MB
+2025-03-04 20:05:42,254 - __main__ - INFO - Memory after vector store creation: 1760.46 MB
+2025-03-04 20:05:46,008 - __main__ - INFO - Creating vector store with 50 embeddings
+2025-03-04 20:05:46,008 - __main__ - INFO - Memory before vector store creation: 1762.34 MB
+2025-03-04 20:05:46,011 - __main__ - INFO - Memory after vector store creation: 1762.34 MB
+2025-03-04 20:05:48,566 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:05:48,567 - __main__ - INFO - Memory before vector store creation: 1779.12 MB
+2025-03-04 20:05:48,567 - __main__ - INFO - Memory after vector store creation: 1779.12 MB
+2025-03-04 20:05:49,320 - __main__ - INFO - Creating vector store with 11 embeddings
+2025-03-04 20:05:49,320 - __main__ - INFO - Memory before vector store creation: 1778.37 MB
+2025-03-04 20:05:49,321 - __main__ - INFO - Memory after vector store creation: 1778.37 MB
+2025-03-04 20:05:49,757 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:05:49,757 - __main__ - INFO - Memory before vector store creation: 1778.62 MB
+2025-03-04 20:05:49,758 - __main__ - INFO - Memory after vector store creation: 1778.62 MB
+2025-03-04 20:05:50,265 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:05:50,265 - __main__ - INFO - Memory before vector store creation: 1778.62 MB
+2025-03-04 20:05:50,265 - __main__ - INFO - Memory after vector store creation: 1778.62 MB
+2025-03-04 20:05:51,255 - __main__ - INFO - Creating vector store with 9 embeddings
+2025-03-04 20:05:51,255 - __main__ - INFO - Memory before vector store creation: 1778.62 MB
+2025-03-04 20:05:51,256 - __main__ - INFO - Memory after vector store creation: 1778.62 MB
+2025-03-04 20:05:51,398 - __main__ - INFO - Processed 2832/6783 documents (41.75%)
+2025-03-04 20:05:51,399 - __main__ - INFO - Processed 2880/6783 documents (42.46%)
+2025-03-04 20:05:51,399 - __main__ - INFO - Processed 2928/6783 documents (43.17%)
+2025-03-04 20:05:51,399 - __main__ - INFO - Processed 2976/6783 documents (43.87%)
+2025-03-04 20:05:51,399 - __main__ - INFO - Processed 3024/6783 documents (44.58%)
+2025-03-04 20:05:51,400 - __main__ - INFO - Processed 3072/6783 documents (45.29%)
+2025-03-04 20:05:52,905 - __main__ - INFO - Creating vector store with 13 embeddings
+2025-03-04 20:05:52,905 - __main__ - INFO - Memory before vector store creation: 1781.77 MB
+2025-03-04 20:05:52,906 - __main__ - INFO - Memory after vector store creation: 1781.77 MB
+2025-03-04 20:05:53,839 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:05:53,839 - __main__ - INFO - Memory before vector store creation: 1786.41 MB
+2025-03-04 20:05:53,839 - __main__ - INFO - Memory after vector store creation: 1786.41 MB
+2025-03-04 20:05:54,656 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:05:54,656 - __main__ - INFO - Memory before vector store creation: 1790.79 MB
+2025-03-04 20:05:54,657 - __main__ - INFO - Memory after vector store creation: 1790.79 MB
+2025-03-04 20:05:55,732 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:05:55,732 - __main__ - INFO - Memory before vector store creation: 1794.91 MB
+2025-03-04 20:05:55,732 - __main__ - INFO - Memory after vector store creation: 1794.91 MB
+2025-03-04 20:05:57,808 - __main__ - INFO - Creating vector store with 21 embeddings
+2025-03-04 20:05:57,809 - __main__ - INFO - Memory before vector store creation: 1794.91 MB
+2025-03-04 20:05:57,810 - __main__ - INFO - Memory after vector store creation: 1794.91 MB
+2025-03-04 20:05:59,117 - __main__ - INFO - Creating vector store with 13 embeddings
+2025-03-04 20:05:59,117 - __main__ - INFO - Memory before vector store creation: 1798.78 MB
+2025-03-04 20:05:59,118 - __main__ - INFO - Memory after vector store creation: 1798.78 MB
+2025-03-04 20:05:59,262 - __main__ - INFO - Processed 3120/6783 documents (46.00%)
+2025-03-04 20:05:59,263 - __main__ - INFO - Processed 3168/6783 documents (46.70%)
+2025-03-04 20:05:59,263 - __main__ - INFO - Processed 3216/6783 documents (47.41%)
+2025-03-04 20:05:59,263 - __main__ - INFO - Processed 3264/6783 documents (48.12%)
+2025-03-04 20:05:59,263 - __main__ - INFO - Processed 3312/6783 documents (48.83%)
+2025-03-04 20:06:09,514 - __main__ - INFO - Creating vector store with 132 embeddings
+2025-03-04 20:06:09,515 - __main__ - INFO - Memory before vector store creation: 1815.05 MB
+2025-03-04 20:06:09,522 - __main__ - INFO - Memory after vector store creation: 1815.31 MB
+2025-03-04 20:06:09,847 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:06:09,847 - __main__ - INFO - Memory before vector store creation: 1815.31 MB
+2025-03-04 20:06:09,847 - __main__ - INFO - Memory after vector store creation: 1815.31 MB
+2025-03-04 20:06:10,610 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:06:10,610 - __main__ - INFO - Memory before vector store creation: 1819.95 MB
+2025-03-04 20:06:10,610 - __main__ - INFO - Memory after vector store creation: 1819.95 MB
+2025-03-04 20:06:13,629 - __main__ - INFO - Creating vector store with 26 embeddings
+2025-03-04 20:06:13,629 - __main__ - INFO - Memory before vector store creation: 1825.62 MB
+2025-03-04 20:06:13,631 - __main__ - INFO - Memory after vector store creation: 1825.62 MB
+2025-03-04 20:06:15,545 - __main__ - INFO - Creating vector store with 19 embeddings
+2025-03-04 20:06:15,545 - __main__ - INFO - Memory before vector store creation: 1827.17 MB
+2025-03-04 20:06:15,546 - __main__ - INFO - Memory after vector store creation: 1827.17 MB
+2025-03-04 20:06:15,704 - __main__ - INFO - Processed 3360/6783 documents (49.54%)
+2025-03-04 20:06:15,704 - __main__ - INFO - Processed 3408/6783 documents (50.24%)
+2025-03-04 20:06:15,704 - __main__ - INFO - Processed 3456/6783 documents (50.95%)
+2025-03-04 20:06:15,705 - __main__ - INFO - Processed 3504/6783 documents (51.66%)
+2025-03-04 20:06:15,705 - __main__ - INFO - Processed 3552/6783 documents (52.37%)
+2025-03-04 20:06:16,134 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:06:16,134 - __main__ - INFO - Memory before vector store creation: 1827.42 MB
+2025-03-04 20:06:16,135 - __main__ - INFO - Memory after vector store creation: 1827.42 MB
+2025-03-04 20:06:21,967 - __main__ - INFO - Creating vector store with 67 embeddings
+2025-03-04 20:06:21,967 - __main__ - INFO - Memory before vector store creation: 1827.45 MB
+2025-03-04 20:06:21,970 - __main__ - INFO - Memory after vector store creation: 1827.45 MB
+2025-03-04 20:06:25,291 - __main__ - INFO - Creating vector store with 31 embeddings
+2025-03-04 20:06:25,291 - __main__ - INFO - Memory before vector store creation: 1839.63 MB
+2025-03-04 20:06:25,293 - __main__ - INFO - Memory after vector store creation: 1839.63 MB
+2025-03-04 20:06:26,761 - __main__ - INFO - Creating vector store with 20 embeddings
+2025-03-04 20:06:26,761 - __main__ - INFO - Memory before vector store creation: 1837.63 MB
+2025-03-04 20:06:26,763 - __main__ - INFO - Memory after vector store creation: 1837.63 MB
+2025-03-04 20:06:28,119 - __main__ - INFO - Creating vector store with 18 embeddings
+2025-03-04 20:06:28,120 - __main__ - INFO - Memory before vector store creation: 1837.63 MB
+2025-03-04 20:06:28,121 - __main__ - INFO - Memory after vector store creation: 1837.63 MB
+2025-03-04 20:06:28,266 - __main__ - INFO - Processed 3600/6783 documents (53.07%)
+2025-03-04 20:06:28,267 - __main__ - INFO - Processed 3648/6783 documents (53.78%)
+2025-03-04 20:06:28,267 - __main__ - INFO - Processed 3696/6783 documents (54.49%)
+2025-03-04 20:06:28,267 - __main__ - INFO - Processed 3744/6783 documents (55.20%)
+2025-03-04 20:06:28,267 - __main__ - INFO - Processed 3792/6783 documents (55.90%)
+2025-03-04 20:06:35,544 - __main__ - INFO - Creating vector store with 119 embeddings
+2025-03-04 20:06:35,545 - __main__ - INFO - Memory before vector store creation: 1837.65 MB
+2025-03-04 20:06:35,550 - __main__ - INFO - Memory after vector store creation: 1837.65 MB
+2025-03-04 20:06:38,360 - __main__ - INFO - Creating vector store with 29 embeddings
+2025-03-04 20:06:38,361 - __main__ - INFO - Memory before vector store creation: 1837.60 MB
+2025-03-04 20:06:38,362 - __main__ - INFO - Memory after vector store creation: 1837.60 MB
+2025-03-04 20:06:39,407 - __main__ - INFO - Creating vector store with 10 embeddings
+2025-03-04 20:06:39,408 - __main__ - INFO - Memory before vector store creation: 1837.60 MB
+2025-03-04 20:06:39,408 - __main__ - INFO - Memory after vector store creation: 1837.60 MB
+2025-03-04 20:06:40,500 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:06:40,500 - __main__ - INFO - Memory before vector store creation: 1840.17 MB
+2025-03-04 20:06:40,501 - __main__ - INFO - Memory after vector store creation: 1840.17 MB
+2025-03-04 20:06:41,015 - __main__ - INFO - Creating vector store with 3 embeddings
+2025-03-04 20:06:41,015 - __main__ - INFO - Memory before vector store creation: 1842.23 MB
+2025-03-04 20:06:41,016 - __main__ - INFO - Memory after vector store creation: 1842.23 MB
+2025-03-04 20:06:41,154 - __main__ - INFO - Processed 3840/6783 documents (56.61%)
+2025-03-04 20:06:41,154 - __main__ - INFO - Processed 3888/6783 documents (57.32%)
+2025-03-04 20:06:41,154 - __main__ - INFO - Processed 3936/6783 documents (58.03%)
+2025-03-04 20:06:41,154 - __main__ - INFO - Processed 3984/6783 documents (58.74%)
+2025-03-04 20:06:43,200 - __main__ - INFO - Creating vector store with 16 embeddings
+2025-03-04 20:06:43,200 - __main__ - INFO - Memory before vector store creation: 1856.38 MB
+2025-03-04 20:06:43,201 - __main__ - INFO - Memory after vector store creation: 1856.38 MB
+2025-03-04 20:06:47,913 - __main__ - INFO - Creating vector store with 50 embeddings
+2025-03-04 20:06:47,913 - __main__ - INFO - Memory before vector store creation: 1858.73 MB
+2025-03-04 20:06:47,915 - __main__ - INFO - Memory after vector store creation: 1858.73 MB
+2025-03-04 20:06:50,381 - __main__ - INFO - Creating vector store with 27 embeddings
+2025-03-04 20:06:50,381 - __main__ - INFO - Memory before vector store creation: 1858.73 MB
+2025-03-04 20:06:50,383 - __main__ - INFO - Memory after vector store creation: 1858.73 MB
+2025-03-04 20:06:51,942 - __main__ - INFO - Creating vector store with 23 embeddings
+2025-03-04 20:06:51,942 - __main__ - INFO - Memory before vector store creation: 1858.73 MB
+2025-03-04 20:06:51,944 - __main__ - INFO - Memory after vector store creation: 1858.73 MB
+2025-03-04 20:06:52,094 - __main__ - INFO - Processed 4032/6783 documents (59.44%)
+2025-03-04 20:06:52,094 - __main__ - INFO - Processed 4080/6783 documents (60.15%)
+2025-03-04 20:06:52,094 - __main__ - INFO - Processed 4128/6783 documents (60.86%)
+2025-03-04 20:06:52,094 - __main__ - INFO - Processed 4176/6783 documents (61.57%)
+2025-03-04 20:06:53,229 - __main__ - INFO - Creating vector store with 15 embeddings
+2025-03-04 20:06:53,230 - __main__ - INFO - Memory before vector store creation: 1858.99 MB
+2025-03-04 20:06:53,231 - __main__ - INFO - Memory after vector store creation: 1858.99 MB
+2025-03-04 20:06:55,336 - __main__ - INFO - Creating vector store with 21 embeddings
+2025-03-04 20:06:55,336 - __main__ - INFO - Memory before vector store creation: 1858.99 MB
+2025-03-04 20:06:55,337 - __main__ - INFO - Memory after vector store creation: 1858.99 MB
+2025-03-04 20:06:55,659 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:06:55,660 - __main__ - INFO - Memory before vector store creation: 1858.99 MB
+2025-03-04 20:06:55,660 - __main__ - INFO - Memory after vector store creation: 1858.99 MB
+2025-03-04 20:06:56,660 - __main__ - INFO - Creating vector store with 8 embeddings
+2025-03-04 20:06:56,661 - __main__ - INFO - Memory before vector store creation: 1860.54 MB
+2025-03-04 20:06:56,661 - __main__ - INFO - Memory after vector store creation: 1860.54 MB
+2025-03-04 20:06:56,811 - __main__ - INFO - Processed 4224/6783 documents (62.27%)
+2025-03-04 20:06:56,811 - __main__ - INFO - Processed 4272/6783 documents (62.98%)
+2025-03-04 20:06:56,812 - __main__ - INFO - Processed 4320/6783 documents (63.69%)
+2025-03-04 20:06:56,812 - __main__ - INFO - Processed 4368/6783 documents (64.40%)
+2025-03-04 20:06:57,908 - __main__ - INFO - Creating vector store with 12 embeddings
+2025-03-04 20:06:57,908 - __main__ - INFO - Memory before vector store creation: 1872.14 MB
+2025-03-04 20:06:57,909 - __main__ - INFO - Memory after vector store creation: 1872.14 MB
+2025-03-04 20:06:59,268 - __main__ - INFO - Creating vector store with 3 embeddings
+2025-03-04 20:06:59,268 - __main__ - INFO - Memory before vector store creation: 1877.93 MB
+2025-03-04 20:06:59,268 - __main__ - INFO - Memory after vector store creation: 1877.93 MB
+2025-03-04 20:07:00,569 - __main__ - INFO - Creating vector store with 14 embeddings
+2025-03-04 20:07:00,570 - __main__ - INFO - Memory before vector store creation: 1877.93 MB
+2025-03-04 20:07:00,571 - __main__ - INFO - Memory after vector store creation: 1877.93 MB
+2025-03-04 20:07:01,632 - __main__ - INFO - Creating vector store with 10 embeddings
+2025-03-04 20:07:01,632 - __main__ - INFO - Memory before vector store creation: 1877.41 MB
+2025-03-04 20:07:01,633 - __main__ - INFO - Memory after vector store creation: 1877.41 MB
+2025-03-04 20:07:01,782 - __main__ - INFO - Processed 4416/6783 documents (65.10%)
+2025-03-04 20:07:01,783 - __main__ - INFO - Processed 4464/6783 documents (65.81%)
+2025-03-04 20:07:01,783 - __main__ - INFO - Processed 4512/6783 documents (66.52%)
+2025-03-04 20:07:01,783 - __main__ - INFO - Processed 4560/6783 documents (67.23%)
+2025-03-04 20:07:05,564 - __main__ - INFO - Creating vector store with 11 embeddings
+2025-03-04 20:07:05,565 - __main__ - INFO - Memory before vector store creation: 1893.42 MB
+2025-03-04 20:07:05,566 - __main__ - INFO - Memory after vector store creation: 1893.42 MB
+2025-03-04 20:07:08,428 - __main__ - INFO - Creating vector store with 18 embeddings
+2025-03-04 20:07:08,428 - __main__ - INFO - Memory before vector store creation: 1890.00 MB
+2025-03-04 20:07:08,430 - __main__ - INFO - Memory after vector store creation: 1890.00 MB
+2025-03-04 20:07:17,753 - __main__ - INFO - Creating vector store with 95 embeddings
+2025-03-04 20:07:17,754 - __main__ - INFO - Memory before vector store creation: 1890.32 MB
+2025-03-04 20:07:17,758 - __main__ - INFO - Memory after vector store creation: 1890.32 MB
+2025-03-04 20:07:20,106 - __main__ - INFO - Creating vector store with 1 embeddings
+2025-03-04 20:07:20,106 - __main__ - INFO - Memory before vector store creation: 1920.88 MB
+2025-03-04 20:07:20,107 - __main__ - INFO - Memory after vector store creation: 1920.88 MB
+2025-03-04 20:07:20,248 - __main__ - INFO - Processed 4608/6783 documents (67.93%)
+2025-03-04 20:07:20,248 - __main__ - INFO - Processed 4656/6783 documents (68.64%)
+2025-03-04 20:07:20,248 - __main__ - INFO - Processed 4704/6783 documents (69.35%)
+2025-03-04 20:07:21,518 - __main__ - INFO - Creating vector store with 13 embeddings
+2025-03-04 20:07:21,518 - __main__ - INFO - Memory before vector store creation: 1937.64 MB
+2025-03-04 20:07:21,519 - __main__ - INFO - Memory after vector store creation: 1937.64 MB
+2025-03-04 20:07:29,522 - __main__ - INFO - Creating vector store with 57 embeddings
+2025-03-04 20:07:29,523 - __main__ - INFO - Memory before vector store creation: 1940.97 MB
+2025-03-04 20:07:29,525 - __main__ - INFO - Memory after vector store creation: 1940.97 MB
+2025-03-04 20:07:32,911 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:07:32,911 - __main__ - INFO - Memory before vector store creation: 1978.25 MB
+2025-03-04 20:07:32,912 - __main__ - INFO - Memory after vector store creation: 1978.25 MB
+2025-03-04 20:07:33,057 - __main__ - INFO - Processed 4752/6783 documents (70.06%)
+2025-03-04 20:07:33,057 - __main__ - INFO - Processed 4800/6783 documents (70.77%)
+2025-03-04 20:07:33,058 - __main__ - INFO - Processed 4848/6783 documents (71.47%)
+2025-03-04 20:07:33,058 - __main__ - INFO - Processed 4896/6783 documents (72.18%)
+2025-03-04 20:07:33,058 - __main__ - INFO - Processed 4944/6783 documents (72.89%)
+2025-03-04 20:07:33,058 - __main__ - INFO - Processed 4992/6783 documents (73.60%)
+2025-03-04 20:07:34,854 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:07:34,854 - __main__ - INFO - Memory before vector store creation: 1992.23 MB
+2025-03-04 20:07:34,855 - __main__ - INFO - Memory after vector store creation: 1992.23 MB
+2025-03-04 20:07:37,927 - __main__ - INFO - Creating vector store with 7 embeddings
+2025-03-04 20:07:37,927 - __main__ - INFO - Memory before vector store creation: 1992.48 MB
+2025-03-04 20:07:37,928 - __main__ - INFO - Memory after vector store creation: 1992.48 MB
+2025-03-04 20:07:38,262 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:07:38,262 - __main__ - INFO - Memory before vector store creation: 1992.48 MB
+2025-03-04 20:07:38,262 - __main__ - INFO - Memory after vector store creation: 1992.48 MB
+2025-03-04 20:07:43,935 - __main__ - INFO - Creating vector store with 37 embeddings
+2025-03-04 20:07:43,935 - __main__ - INFO - Memory before vector store creation: 2005.37 MB
+2025-03-04 20:07:43,937 - __main__ - INFO - Memory after vector store creation: 2005.37 MB
+2025-03-04 20:07:47,328 - __main__ - INFO - Creating vector store with 26 embeddings
+2025-03-04 20:07:47,329 - __main__ - INFO - Memory before vector store creation: 2011.30 MB
+2025-03-04 20:07:47,330 - __main__ - INFO - Memory after vector store creation: 2011.30 MB
+2025-03-04 20:07:51,551 - __main__ - INFO - Creating vector store with 33 embeddings
+2025-03-04 20:07:51,551 - __main__ - INFO - Memory before vector store creation: 2023.16 MB
+2025-03-04 20:07:51,553 - __main__ - INFO - Memory after vector store creation: 2023.16 MB
+2025-03-04 20:07:51,703 - __main__ - INFO - Processed 5040/6783 documents (74.30%)
+2025-03-04 20:07:51,703 - __main__ - INFO - Processed 5088/6783 documents (75.01%)
+2025-03-04 20:07:51,703 - __main__ - INFO - Processed 5136/6783 documents (75.72%)
+2025-03-04 20:07:54,314 - __main__ - INFO - Creating vector store with 21 embeddings
+2025-03-04 20:07:54,314 - __main__ - INFO - Memory before vector store creation: 2023.01 MB
+2025-03-04 20:07:54,315 - __main__ - INFO - Memory after vector store creation: 2023.01 MB
+2025-03-04 20:07:55,930 - __main__ - INFO - Creating vector store with 11 embeddings
+2025-03-04 20:07:55,930 - __main__ - INFO - Memory before vector store creation: 2023.27 MB
+2025-03-04 20:07:55,931 - __main__ - INFO - Memory after vector store creation: 2023.27 MB
+2025-03-04 20:07:59,736 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:07:59,736 - __main__ - INFO - Memory before vector store creation: 2056.53 MB
+2025-03-04 20:07:59,737 - __main__ - INFO - Memory after vector store creation: 2056.53 MB
+2025-03-04 20:07:59,883 - __main__ - INFO - Processed 5184/6783 documents (76.43%)
+2025-03-04 20:07:59,883 - __main__ - INFO - Processed 5232/6783 documents (77.13%)
+2025-03-04 20:07:59,883 - __main__ - INFO - Processed 5280/6783 documents (77.84%)
+2025-03-04 20:07:59,884 - __main__ - INFO - Processed 5328/6783 documents (78.55%)
+2025-03-04 20:08:01,483 - __main__ - INFO - Creating vector store with 24 embeddings
+2025-03-04 20:08:01,483 - __main__ - INFO - Memory before vector store creation: 2057.09 MB
+2025-03-04 20:08:01,484 - __main__ - INFO - Memory after vector store creation: 2057.09 MB
+2025-03-04 20:08:05,889 - __main__ - INFO - Creating vector store with 36 embeddings
+2025-03-04 20:08:05,890 - __main__ - INFO - Memory before vector store creation: 2057.86 MB
+2025-03-04 20:08:05,892 - __main__ - INFO - Memory after vector store creation: 2057.86 MB
+2025-03-04 20:08:13,717 - __main__ - INFO - Creating vector store with 79 embeddings
+2025-03-04 20:08:13,717 - __main__ - INFO - Memory before vector store creation: 2057.04 MB
+2025-03-04 20:08:13,722 - __main__ - INFO - Memory after vector store creation: 2057.04 MB
+2025-03-04 20:08:45,218 - __main__ - INFO - Creating vector store with 367 embeddings
+2025-03-04 20:08:45,219 - __main__ - INFO - Memory before vector store creation: 2108.38 MB
+2025-03-04 20:08:45,238 - __main__ - INFO - Memory after vector store creation: 2108.22 MB
+2025-03-04 20:08:45,429 - __main__ - INFO - Processed 5376/6783 documents (79.26%)
+2025-03-04 20:08:45,429 - __main__ - INFO - Processed 5424/6783 documents (79.96%)
+2025-03-04 20:08:45,430 - __main__ - INFO - Processed 5472/6783 documents (80.67%)
+2025-03-04 20:09:18,189 - __main__ - INFO - Creating vector store with 485 embeddings
+2025-03-04 20:09:18,189 - __main__ - INFO - Memory before vector store creation: 2173.83 MB
+2025-03-04 20:09:18,214 - __main__ - INFO - Memory after vector store creation: 2173.83 MB
+2025-03-04 20:09:19,118 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:09:19,118 - __main__ - INFO - Memory before vector store creation: 2173.03 MB
+2025-03-04 20:09:19,118 - __main__ - INFO - Memory after vector store creation: 2173.03 MB
+2025-03-04 20:09:20,335 - __main__ - INFO - Creating vector store with 13 embeddings
+2025-03-04 20:09:20,335 - __main__ - INFO - Memory before vector store creation: 2173.03 MB
+2025-03-04 20:09:20,336 - __main__ - INFO - Memory after vector store creation: 2173.03 MB
+2025-03-04 20:09:20,483 - __main__ - INFO - Processed 5520/6783 documents (81.38%)
+2025-03-04 20:09:20,483 - __main__ - INFO - Processed 5568/6783 documents (82.09%)
+2025-03-04 20:09:20,483 - __main__ - INFO - Processed 5616/6783 documents (82.80%)
+2025-03-04 20:09:20,483 - __main__ - INFO - Processed 5664/6783 documents (83.50%)
+2025-03-04 20:09:21,600 - __main__ - INFO - Creating vector store with 2 embeddings
+2025-03-04 20:09:21,601 - __main__ - INFO - Memory before vector store creation: 2170.10 MB
+2025-03-04 20:09:21,601 - __main__ - INFO - Memory after vector store creation: 2170.10 MB
+2025-03-04 20:09:24,505 - __main__ - INFO - Creating vector store with 18 embeddings
+2025-03-04 20:09:24,506 - __main__ - INFO - Memory before vector store creation: 2171.16 MB
+2025-03-04 20:09:24,507 - __main__ - INFO - Memory after vector store creation: 2171.16 MB
+2025-03-04 20:09:26,729 - __main__ - INFO - Creating vector store with 20 embeddings
+2025-03-04 20:09:26,730 - __main__ - INFO - Memory before vector store creation: 2170.16 MB
+2025-03-04 20:09:26,731 - __main__ - INFO - Memory after vector store creation: 2170.16 MB
+2025-03-04 20:09:29,376 - __main__ - INFO - Creating vector store with 28 embeddings
+2025-03-04 20:09:29,377 - __main__ - INFO - Memory before vector store creation: 2169.17 MB
+2025-03-04 20:09:29,378 - __main__ - INFO - Memory after vector store creation: 2169.17 MB
+2025-03-04 20:09:29,524 - __main__ - INFO - Processed 5712/6783 documents (84.21%)
+2025-03-04 20:09:29,524 - __main__ - INFO - Processed 5760/6783 documents (84.92%)
+2025-03-04 20:09:32,958 - __main__ - INFO - Creating vector store with 4 embeddings
+2025-03-04 20:09:32,959 - __main__ - INFO - Memory before vector store creation: 2194.09 MB
+2025-03-04 20:09:32,959 - __main__ - INFO - Memory after vector store creation: 2194.09 MB
+2025-03-04 20:09:39,734 - __main__ - INFO - Creating vector store with 38 embeddings
+2025-03-04 20:09:39,734 - __main__ - INFO - Memory before vector store creation: 2220.64 MB
+2025-03-04 20:09:39,736 - __main__ - INFO - Memory after vector store creation: 2220.64 MB
+2025-03-04 20:09:39,882 - __main__ - INFO - Processed 5808/6783 documents (85.63%)
+2025-03-04 20:09:39,882 - __main__ - INFO - Processed 5856/6783 documents (86.33%)
+2025-03-04 20:09:45,041 - __main__ - INFO - Creating vector store with 61 embeddings
+2025-03-04 20:09:45,041 - __main__ - INFO - Memory before vector store creation: 2235.38 MB
+2025-03-04 20:09:45,044 - __main__ - INFO - Memory after vector store creation: 2235.38 MB
+2025-03-04 20:09:45,744 - __main__ - INFO - Creating vector store with 3 embeddings
+2025-03-04 20:09:45,745 - __main__ - INFO - Memory before vector store creation: 2235.38 MB
+2025-03-04 20:09:45,745 - __main__ - INFO - Memory after vector store creation: 2235.38 MB
+2025-03-04 20:09:45,888 - __main__ - INFO - Processed 5904/6783 documents (87.04%)
+2025-03-04 20:09:54,440 - __main__ - INFO - Creating vector store with 113 embeddings
+2025-03-04 20:09:54,440 - __main__ - INFO - Memory before vector store creation: 2235.64 MB
+2025-03-04 20:09:54,446 - __main__ - INFO - Memory after vector store creation: 2235.64 MB
+2025-03-04 20:09:54,608 - __main__ - INFO - Processed 5952/6783 documents (87.75%)
+2025-03-04 20:09:54,608 - __main__ - INFO - Processed 6000/6783 documents (88.46%)
+2025-03-04 20:09:57,823 - __main__ - INFO - Creating vector store with 37 embeddings
+2025-03-04 20:09:57,824 - __main__ - INFO - Memory before vector store creation: 2211.32 MB
+2025-03-04 20:09:57,826 - __main__ - INFO - Memory after vector store creation: 2211.32 MB
+2025-03-04 20:10:03,207 - __main__ - INFO - Creating vector store with 64 embeddings
+2025-03-04 20:10:03,208 - __main__ - INFO - Memory before vector store creation: 2211.32 MB
+2025-03-04 20:10:03,211 - __main__ - INFO - Memory after vector store creation: 2211.32 MB
+2025-03-04 20:10:03,366 - __main__ - INFO - Processed 6048/6783 documents (89.16%)
+2025-03-04 20:10:16,042 - __main__ - INFO - Creating vector store with 214 embeddings
+2025-03-04 20:10:16,042 - __main__ - INFO - Memory before vector store creation: 2210.33 MB
+2025-03-04 20:10:16,054 - __main__ - INFO - Memory after vector store creation: 2210.33 MB
+2025-03-04 20:10:16,213 - __main__ - INFO - Processed 6096/6783 documents (89.87%)
+2025-03-04 20:10:36,034 - __main__ - INFO - Creating vector store with 247 embeddings
+2025-03-04 20:10:36,034 - __main__ - INFO - Memory before vector store creation: 2215.49 MB
+2025-03-04 20:10:36,047 - __main__ - INFO - Memory after vector store creation: 2215.49 MB
+2025-03-04 20:10:36,223 - __main__ - INFO - Processed 6144/6783 documents (90.58%)
+2025-03-04 20:10:38,813 - __main__ - INFO - Creating vector store with 25 embeddings
+2025-03-04 20:10:38,813 - __main__ - INFO - Memory before vector store creation: 2216.58 MB
+2025-03-04 20:10:38,815 - __main__ - INFO - Memory after vector store creation: 2216.58 MB
+2025-03-04 20:10:39,741 - __main__ - INFO - Processed 6192/6783 documents (91.29%)
+2025-03-04 20:10:42,412 - __main__ - INFO - Creating vector store with 27 embeddings
+2025-03-04 20:10:42,412 - __main__ - INFO - Memory before vector store creation: 2217.10 MB
+2025-03-04 20:10:42,414 - __main__ - INFO - Memory after vector store creation: 2217.10 MB
+2025-03-04 20:10:43,247 - __main__ - INFO - Processed 6240/6783 documents (91.99%)
+2025-03-04 20:11:14,017 - __main__ - INFO - Creating vector store with 453 embeddings
+2025-03-04 20:11:14,018 - __main__ - INFO - Memory before vector store creation: 2229.75 MB
+2025-03-04 20:11:14,041 - __main__ - INFO - Memory after vector store creation: 2229.75 MB
+2025-03-04 20:11:14,218 - __main__ - INFO - Processed 6288/6783 documents (92.70%)
+2025-03-04 20:11:14,218 - __main__ - INFO - Processed 6336/6783 documents (93.41%)
+2025-03-04 20:11:14,219 - __main__ - INFO - Processed 6384/6783 documents (94.12%)
+2025-03-04 20:11:14,219 - __main__ - INFO - Processed 6432/6783 documents (94.83%)
+2025-03-04 20:11:14,219 - __main__ - INFO - Processed 6480/6783 documents (95.53%)
+2025-03-04 20:11:14,219 - __main__ - INFO - Processed 6528/6783 documents (96.24%)
+2025-03-04 20:11:14,219 - __main__ - INFO - Processed 6576/6783 documents (96.95%)
+2025-03-04 20:11:14,220 - __main__ - INFO - Processed 6624/6783 documents (97.66%)
+2025-03-04 20:11:49,545 - __main__ - INFO - Creating vector store with 519 embeddings
+2025-03-04 20:11:49,545 - __main__ - INFO - Memory before vector store creation: 2229.65 MB
+2025-03-04 20:11:49,571 - __main__ - INFO - Memory after vector store creation: 2229.65 MB
+2025-03-04 20:11:50,292 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:11:50,292 - __main__ - INFO - Memory before vector store creation: 2229.65 MB
+2025-03-04 20:11:50,293 - __main__ - INFO - Memory after vector store creation: 2229.65 MB
+2025-03-04 20:11:50,653 - __main__ - INFO - Creating vector store with 3 embeddings
+2025-03-04 20:11:50,653 - __main__ - INFO - Memory before vector store creation: 2229.65 MB
+2025-03-04 20:11:50,654 - __main__ - INFO - Memory after vector store creation: 2229.65 MB
+2025-03-04 20:11:51,570 - __main__ - INFO - Creating vector store with 9 embeddings
+2025-03-04 20:11:51,571 - __main__ - INFO - Memory before vector store creation: 2229.65 MB
+2025-03-04 20:11:51,571 - __main__ - INFO - Memory after vector store creation: 2229.65 MB
+2025-03-04 20:11:52,405 - __main__ - INFO - Creating vector store with 12 embeddings
+2025-03-04 20:11:52,406 - __main__ - INFO - Memory before vector store creation: 2229.65 MB
+2025-03-04 20:11:52,407 - __main__ - INFO - Memory after vector store creation: 2229.65 MB
+2025-03-04 20:11:52,913 - __main__ - INFO - Creating vector store with 6 embeddings
+2025-03-04 20:11:52,913 - __main__ - INFO - Memory before vector store creation: 2229.65 MB
+2025-03-04 20:11:52,914 - __main__ - INFO - Memory after vector store creation: 2229.65 MB
+2025-03-04 20:11:53,370 - __main__ - INFO - Creating vector store with 5 embeddings
+2025-03-04 20:11:53,370 - __main__ - INFO - Memory before vector store creation: 2229.65 MB
+2025-03-04 20:11:53,371 - __main__ - INFO - Memory after vector store creation: 2229.65 MB
+2025-03-04 20:11:54,230 - __main__ - INFO - Creating vector store with 12 embeddings
+2025-03-04 20:11:54,231 - __main__ - INFO - Memory before vector store creation: 2228.71 MB
+2025-03-04 20:11:54,231 - __main__ - INFO - Memory after vector store creation: 2228.71 MB
+2025-03-04 20:11:54,372 - __main__ - INFO - Processed 6672/6783 documents (98.36%)
+2025-03-04 20:11:54,373 - __main__ - INFO - Processed 6720/6783 documents (99.07%)
+2025-03-04 20:11:54,373 - __main__ - INFO - Processed 6768/6783 documents (99.78%)
+2025-03-04 20:11:54,373 - __main__ - INFO - Processed 6783/6783 documents (100.00%)
+2025-03-04 20:11:54,992 - __main__ - INFO - Creating vector store with 11 embeddings
+2025-03-04 20:11:54,992 - __main__ - INFO - Memory before vector store creation: 2228.71 MB
+2025-03-04 20:11:54,993 - __main__ - INFO - Memory after vector store creation: 2228.71 MB
+2025-03-04 20:11:56,579 - __main__ - INFO - Creating vector store with 23 embeddings
+2025-03-04 20:11:56,579 - __main__ - INFO - Memory before vector store creation: 2228.71 MB
+2025-03-04 20:11:56,581 - __main__ - INFO - Memory after vector store creation: 2228.71 MB
+2025-03-04 20:11:57,779 - __main__ - INFO - Creating vector store with 16 embeddings
+2025-03-04 20:11:57,779 - __main__ - INFO - Memory before vector store creation: 2228.71 MB
+2025-03-04 20:11:57,780 - __main__ - INFO - Memory after vector store creation: 2228.71 MB
+2025-03-04 20:11:59,053 - __main__ - INFO - Creating vector store with 17 embeddings
+2025-03-04 20:11:59,054 - __main__ - INFO - Memory before vector store creation: 2228.71 MB
+2025-03-04 20:11:59,055 - __main__ - INFO - Memory after vector store creation: 2228.71 MB
+2025-03-04 20:11:59,218 - __main__ - INFO - Saving vector store to /home/smartview/vectorization/faiss_index_final
+2025-03-04 20:11:59,276 - __main__ - INFO - Vector store saved successfully
+2025-03-04 20:11:59,276 - __main__ - INFO - Verifying vector store creation
+2025-03-04 20:11:59,276 - __main__ - ERROR - Failed to load vector store: The de-serialization relies loading a pickle file. Pickle files can be modified to deliver a malicious payload that results in execution of arbitrary code on your machine.You will need to set `allow_dangerous_deserialization` to `True` to enable deserialization. If you do this, make sure that you trust the source of the data. For example, if you are loading a file that you created, and know that no one else has modified the file, then this is safe to do. Do not set this to `True` if you are loading a file from an untrusted source (e.g., some random site on the internet.).
+2025-03-04 20:11:59,277 - __main__ - ERROR - Traceback (most recent call last):
+  File "/home/smartview/vectorization/vectorize/vectorization_gpu.py", line 535, in main
+    loaded_store = load_vector_store()
+                   ^^^^^^^^^^^^^^^^^^^
+  File "/home/smartview/vectorization/vectorize/vectorization_gpu.py", line 495, in load_vector_store
+    return FAISS.load_local(path, embeddings)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/smartview/vectorization/.venv/lib/python3.12/site-packages/langchain_community/vectorstores/faiss.py", line 1190, in load_local
+    raise ValueError(
+ValueError: The de-serialization relies loading a pickle file. Pickle files can be modified to deliver a malicious payload that results in execution of arbitrary code on your machine.You will need to set `allow_dangerous_deserialization` to `True` to enable deserialization. If you do this, make sure that you trust the source of the data. For example, if you are loading a file that you created, and know that no one else has modified the file, then this is safe to do. Do not set this to `True` if you are loading a file from an untrusted source (e.g., some random site on the internet.).
+
+2025-03-04 20:11:59,277 - __main__ - INFO - Vectorization complete in 491.68 seconds.
+2025-03-04 20:11:59,277 - __main__ - INFO - Final memory usage: 2235.00 MB

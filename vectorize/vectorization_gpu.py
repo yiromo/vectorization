@@ -75,7 +75,9 @@ def create_embeddings(device):
     """
     try:
         embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+            # model_name="sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+            model_name="intfloat/multilingual-e5-large",
+            # model_name="sentence-transformers/stsb-xlm-r-multilingual",
             model_kwargs={
                 'device': device
             },
@@ -174,17 +176,29 @@ class DocumentStructureParser:
 
         section_match = re.search(patterns['section'], text, re.MULTILINE)
         if section_match:
-            structure['section'] = section_match.group(1)
+            structure['section'] = section_match.group(1) if section_match.groups() else section_match.group(0)
+
         chapter_match = re.search(patterns['chapter'], text, re.MULTILINE)
         if chapter_match:
-            structure['chapter'] = chapter_match.group(1)
+            structure['chapter'] = chapter_match.group(1) if chapter_match.groups() else chapter_match.group(0)
 
         article_matches = re.finditer(patterns['article'], text, re.MULTILINE)
         for match in article_matches:
-            structure['articles'].append({
-                'number': match.group(1),
-                'title': match.group(2).strip()
-            })
+            try:
+                if len(match.groups()) > 1:
+                    article_number = match.group(1)
+                    article_title = match.group(2).strip()
+                else:
+                    article_number = match.group(1)
+                    article_title = article_number 
+
+                structure['articles'].append({
+                    'number': article_number,
+                    'title': article_title
+                })
+            except Exception as e:
+                logger.warning(f"Could not parse article match: {match.group(0)}")
+                logger.warning(f"Error details: {str(e)}")
 
         return structure
 
@@ -196,7 +210,15 @@ def custom_chunk_documents(documents):
         metadata = doc['metadata']
         language = metadata.get('lg', '')
         
-        structure = DocumentStructureParser.parse_document_structure(text, language)
+        try:
+            structure = DocumentStructureParser.parse_document_structure(text, language)
+        except Exception as e:
+            logger.error(f"Failed to parse document structure for document {metadata.get('doc_id', 'unknown')}")
+            logger.error(f"Language: {language}")
+            logger.error(f"Text sample (first 200 chars): {text[:200]}")
+            logger.error(f"Error: {str(e)}")
+            logger.error(traceback.format_exc())
+            continue  
         
         base_metadata = {
             **metadata,
@@ -397,7 +419,7 @@ async def process_target_documents():
         total_docs = await db.db.target_documents.count_documents({})
         
         if total_docs == 0:
-            logger.warning("No documents found in target_documents collection")
+            logger.error("No documents found in target_documents collection")
             return None
             
         progress_bar = tqdm(total=total_docs, desc="Processing target documents")
@@ -426,19 +448,50 @@ async def process_target_documents():
                 }
             except Exception as e:
                 logger.error(f"Error processing batch: {str(e)}")
+                logger.error(traceback.format_exc())
                 progress_bar.update(len(batch))
-                
                 manage_gpu_memory()
-                
                 return None
         
+        batch_tasks = []
+        async for batch in fetch_target_documents_in_batches(batch_size=DOCUMENT_BATCH_SIZE):
+            task = asyncio.create_task(process_batch(batch))
+            batch_tasks.append(task)
         
+        batch_results = await asyncio.gather(*batch_tasks)
+        
+        for result in batch_results:
+            if result and result['vector_store']:
+                if vector_store is None:
+                    vector_store = result['vector_store']
+                else:
+                    vector_store.merge_from(result['vector_store'])
+        
+        progress_bar.close()
+        
+        if vector_store:
+            os.makedirs("faiss_index_final", exist_ok=True)
+            logger.info(f"Saving vector store to {os.path.abspath('faiss_index_final')}")
+            
+            try:
+                vector_store.save_local("faiss_index_final")
+                logger.info("Vector store saved successfully")
+            except Exception as e:
+                logger.error(f"Failed to save vector store: {str(e)}")
+                logger.error(traceback.format_exc())
+                return None
+            
+            return vector_store
+        else:
+            logger.error("No vector store was created!")
+            return None
+            
     except Exception as e:
         logger.error(f"Error in process_target_documents: {str(e)}")
         logger.error(traceback.format_exc())
         raise
 
-def load_vector_store(path="faiss_index_final"):
+def load_vector_store(path="/home/smartview/vectorization/faiss_index_final"):
     return FAISS.load_local(path, embeddings)
 
 def create_target_retriever(k=3):
@@ -477,7 +530,16 @@ async def main():
         vector_store = await process_target_documents()
         
         if vector_store:
-            await test_search()
+            logger.info("Verifying vector store creation")
+            try:
+                loaded_store = load_vector_store()
+                logger.info(f"Successfully loaded vector store with {loaded_store.index.ntotal} total vectors")
+                await test_search()
+            except Exception as e:
+                logger.error(f"Failed to load vector store: {str(e)}")
+                logger.error(traceback.format_exc())
+        else:
+            logger.error("Vector store creation failed")
         
         duration = time.time() - start_time
         logger.info(f"Vectorization complete in {duration:.2f} seconds.")
