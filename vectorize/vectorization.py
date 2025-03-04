@@ -14,6 +14,7 @@ import numpy as np
 from typing import List, Dict, Any, Tuple
 import psutil
 import gc
+import re
 
 logging.basicConfig(
     level=logging.INFO,
@@ -37,6 +38,47 @@ DOCUMENT_BATCH_SIZE = 50
 CHUNK_BATCH_SIZE = 50
 EMBEDDING_BATCH_SIZE = 16 
 
+RUS_ARTICLE_PATTERN = r'^(\*\*Статья \d+\.\s*.*?\*\*)'
+KAZ_ARTICLE_PATTERN = r'^(\*\*\d+-бап\.\s*.*?\*\*)'
+CHAPTER_PATTERN = r'^(Глава \d+\.\s*.*|[\d-]+\s*тарау\.\s*.*)'
+
+def get_article_chunks(text: str, language: str) -> List[str]:
+    if language == 'rus':
+        article_pattern = RUS_ARTICLE_PATTERN
+        chapter_pattern = r'^(Глава \d+\.\s*.*)'
+    elif language == 'kaz':
+        article_pattern = KAZ_ARTICLE_PATTERN
+        chapter_pattern = r'^([\d-]+\s*тарау\.\s*.*)'
+    else:
+        return None
+    
+    chapters = re.findall(chapter_pattern, text, re.MULTILINE)
+    articles = re.findall(article_pattern, text, re.MULTILINE)
+    
+    if not articles:
+        return None
+    
+    chunks = []
+    current_chunk = ""
+    
+    if chapters:
+        current_chunk += chapters[0] + "\n\n"
+    
+    for line in text.split('\n'):
+        article_match = re.match(article_pattern, line)
+        if article_match:
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+            
+            current_chunk = line + "\n"
+        else:
+            current_chunk += line + "\n"
+    
+    if current_chunk.strip():
+        chunks.append(current_chunk.strip())
+    
+    return chunks
+
 logger.info(f"Initial memory usage: {get_memory_usage():.2f} MB")
 
 embeddings = HuggingFaceEmbeddings(
@@ -45,7 +87,7 @@ embeddings = HuggingFaceEmbeddings(
     encode_kwargs={'normalize_embeddings': True, 'batch_size': EMBEDDING_BATCH_SIZE}
 )
 
-text_splitter = RecursiveCharacterTextSplitter(
+default_text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=1500,
     chunk_overlap=50,
     length_function=len,
@@ -116,7 +158,6 @@ async def fetch_target_documents_in_batches(batch_size=DOCUMENT_BATCH_SIZE):
                 yield batch
                 processed += len(batch)
                 logger.info(f"Processed {processed}/{total_docs} documents ({processed/total_docs*100:.2f}%)")
-                logger.info(f"Current memory usage: {get_memory_usage():.2f} MB")
                 batch = []
         
         if batch:
@@ -128,6 +169,49 @@ async def fetch_target_documents_in_batches(batch_size=DOCUMENT_BATCH_SIZE):
         logger.error(f"Error fetching target documents: {str(e)}")
         logger.error(traceback.format_exc())
         raise
+
+def custom_chunk_documents(documents):
+    processed_documents = []
+    
+    for doc in documents:
+        text = doc['text']
+        metadata = doc['metadata']
+        doc_id = doc['_id']
+        language = metadata.get('lg', '')
+        
+        structured_chunks = get_article_chunks(text, language)
+        
+        if structured_chunks:
+            for chunk in structured_chunks:
+                processed_documents.append({
+                    'text': chunk,
+                    'metadata': {**metadata, 'source_type': 'structured'}
+                })
+        else:
+            default_chunks = default_text_splitter.split_text(text)
+            for chunk in default_chunks:
+                processed_documents.append({
+                    'text': chunk,
+                    'metadata': {**metadata, 'source_type': 'unstructured'}
+                })
+        
+        if metadata.get('voa'):
+            voa_chunks = default_text_splitter.split_text(metadata['voa'])
+            for chunk in voa_chunks:
+                processed_documents.append({
+                    'text': chunk,
+                    'metadata': {**metadata, 'source_type': 'voa'}
+                })
+        
+        if metadata.get('zg'):
+            zg_chunks = default_text_splitter.split_text(metadata['zg'])
+            for chunk in zg_chunks:
+                processed_documents.append({
+                    'text': chunk,
+                    'metadata': {**metadata, 'source_type': 'zg'}
+                })
+    
+    return processed_documents
 
 async def embed_texts(texts, metadatas, batch_size=EMBEDDING_BATCH_SIZE):
     all_texts = []
@@ -204,64 +288,21 @@ async def process_target_documents():
             batch_start_time = time.time()
             logger.info(f"Processing batch #{batch_num} with {len(batch)} target documents")
             
-            texts = [doc["text"] for doc in batch]
-            metadatas = [doc["metadata"] for doc in batch]
-            doc_ids = [doc["_id"] for doc in batch]
+            chunked_documents = custom_chunk_documents(batch)
             
-            for i, doc in enumerate(batch):
-                if "voa" in doc["metadata"] and doc["metadata"]["voa"]:
-                    logger.info(f"Processing voa field for document {doc_ids[i]}")
-                    voa_text = doc["metadata"]["voa"]
-                    if len(voa_text) > 10: 
-                        texts.append(voa_text)
-                        metadata = metadatas[i].copy()
-                        metadata["field"] = "voa"
-                        metadatas.append(metadata)
-                
-                if "zg" in doc["metadata"] and doc["metadata"]["zg"]:
-                    logger.info(f"Processing zg field for document {doc_ids[i]}")
-                    zg_text = doc["metadata"]["zg"]
-                    if len(zg_text) > 10:  
-                        texts.append(zg_text)
-                        metadata = metadatas[i].copy()
-                        metadata["field"] = "zg"
-                        metadatas.append(metadata)
+            texts = [doc['text'] for doc in chunked_documents]
+            metadatas = [doc['metadata'] for doc in chunked_documents]
             
-            batch_splits = []
-            batch_metadatas = []
-            
-            for i in range(0, len(texts), 5):  
-                end_idx = min(i + 5, len(texts))
-                text_batch = texts[i:end_idx]
-                metadata_batch = metadatas[i:end_idx]
-                
-                for j, text in enumerate(text_batch):
-                    try:
-                        if j % 2 == 0:
-                            await asyncio.sleep(0)
-                            
-                        splits = text_splitter.split_text(text)
-                        
-                        for split in splits:
-                            metadata = metadata_batch[j].copy()
-                            metadata["chunk"] = split[:50] + "..."  
-
-                            batch_splits.append(split)
-                            batch_metadatas.append(metadata)
-                    except Exception as e:
-                        logger.error(f"Error processing document {metadata_batch[j].get('doc_id', 'unknown')}: {str(e)}")
-                        continue
-            
-            logger.info(f"Chunked batch #{batch_num}: Created {len(batch_splits)} chunks from {len(texts)} texts")
+            logger.info(f"Chunked batch #{batch_num}: Created {len(texts)} chunks")
             logger.info(f"Memory after chunking: {get_memory_usage():.2f} MB")
             
             try:
-                if not batch_splits:
+                if not texts:
                     logger.warning(f"Batch #{batch_num} produced no chunks, skipping")
                     progress_bar.update(len(batch))
                     continue
                 
-                batch_vector_store = await process_chunks(batch_splits, batch_metadatas, max_chunk_size=CHUNK_BATCH_SIZE)
+                batch_vector_store = await process_chunks(texts, metadatas, max_chunk_size=CHUNK_BATCH_SIZE)
                 
                 if batch_vector_store:
                     if vector_store is None:

@@ -6,49 +6,27 @@ import io
 from bs4 import BeautifulSoup
 import re
 from concurrent.futures import ThreadPoolExecutor
-from mongo_utils import db
+from utils.mongo_utils import db
 import time
 
-TARGET_IDS = [
-    ObjectId('67923a2ed5de6593e98dc92b'),
-    ObjectId('678e4b50d5de6593e9032e1c'),
-    ObjectId('6787ae52d5de6593e8622612'),
-    ObjectId('6785193dd5de6593e80e76e2'),
-    ObjectId('678a5307d5de6593e8acd030'),
-    ObjectId('678a52f5d5de6593e8accb77'),
-    ObjectId('669de330d5de7840c55da19a'),
-    ObjectId('66991286d5de7840c4dcec4d'),
-    ObjectId('67486895d5def82c2c04b601'),
-    ObjectId('6748688bd5def82c2c04b2b4'),
-    ObjectId('677bd9efd5de6593e6fe868f'),
-    ObjectId('677bd9e0d5de6593e6fe8277'),
-    ObjectId('6784e6dad5de6593e8071b51'),
-    ObjectId('6785193ed5de6593e80e76fc'),
-    ObjectId('677dffc9d5de6593e7539a5d'),
-    ObjectId('677a7f74d5de6593e6d63b1a'),
-    ObjectId('677bd9f0d5de6593e6fe869e'),
-    ObjectId('677a7f76d5de6593e6d63b56'),
-    ObjectId('6798d285d5de6f061a757c71'),
-    ObjectId('678fa358d5de6593e92c07eb'),
-    ObjectId('66cdd46cd5de07b24eb016a8'),
-    ObjectId('678a530ad5de6593e8acd074'),
-    ObjectId('678a52f2d5de6593e8accacf'),
-    ObjectId('66cdd45ed5de07b24eb012de'),
-    ObjectId('678a5308d5de6593e8acd035'),
-    ObjectId('678a52f5d5de6593e8accb85'),
-    ObjectId('67923a2ed5de6593e98dc945'),
-    ObjectId('678e4b50d5de6593e9032e24'),
-    ObjectId('678119d6d5de6593e7ad925c'),
-    ObjectId('678119e3d5de6593e7ad95c7'),
-    ObjectId('67923a2fd5de6593e98dc958'),
-    ObjectId('678e4b50d5de6593e9032e31'),
-    ObjectId('67486898d5def82c2c04b68b'),
-    ObjectId('67486889d5def82c2c04b22e'),
-    ObjectId('66a2560fd5de7840c5fdb9ca'),
-    ObjectId('66a25601d5de7840c5fdb657'),
-    ObjectId('6661b757d5dee306ff38e8bc'),
-    ObjectId('6661b74cd5dee306ff38e47f')
-]
+async def get_target_ids():
+    raw_db = db.client[db.db.name]
+    
+    query = {
+        "actual": True, 
+        "in": "0230", 
+        "st": {"$in": ["upd", "new"]}, 
+        "lg": {"$in": ["rus", "kaz"]}
+    }
+    
+    cursor = raw_db.doc_meta.find(query).limit(100)
+    target_ids = []
+    
+    async for doc in cursor:
+        target_ids.append(doc['_id'])
+    
+    print(f"Found {len(target_ids)} target documents matching criteria")
+    return target_ids
 
 def decompress_text_sync(compressed_data):
     if not compressed_data:
@@ -85,24 +63,20 @@ async def process_target_document(doc_id, raw_db, executor):
     try:
         print(f"Processing target document: {doc_id}")
         
-        # Find document metadata
         meta_doc = await raw_db.doc_meta.find_one({"_id": doc_id})
         if not meta_doc:
             return False, f"TARGET NOT FOUND: No metadata for document {doc_id}"
         
-        # Find document data
         data_doc = await raw_db.doc_data.find_one({"_id": doc_id})
         if not data_doc or "compressedText" not in data_doc:
             return False, f"TARGET INCOMPLETE: No compressed text for document {doc_id}"
         
         compressed_data = data_doc.get("compressedText")
         
-        # Decompress text in a separate thread
         decompressed_text = await asyncio.get_event_loop().run_in_executor(
             executor, decompress_text_sync, compressed_data)
         
         if decompressed_text:
-            # Extract plain text in a separate thread
             plain_text = await asyncio.get_event_loop().run_in_executor(
                 executor, extract_plain_text_sync, decompressed_text)
             
@@ -128,6 +102,8 @@ async def process_target_document(doc_id, raw_db, executor):
 
 async def find_target_documents():
     raw_db = db.client[db.db.name]
+    
+    TARGET_IDS = await get_target_ids()
     
     if "target_documents" not in await raw_db.list_collection_names():
         await raw_db.create_collection("target_documents")
