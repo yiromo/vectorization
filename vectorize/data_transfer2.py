@@ -52,6 +52,9 @@ def extract_plain_text_sync(html_content):
     return plain_text
 
 async def get_target_ids():
+    """
+    Retrieve target document IDs based on specific criteria
+    """
     raw_db = db.client[db.db.name]
 
     query = {
@@ -80,36 +83,51 @@ async def get_target_ids():
 
     return target_ids
 
+async def find_missing_document_ids(raw_db, all_target_ids):
+    existing_targets = set()
+    cursor = raw_db.target_documents.find({}, {"_id": 1})
+    async for doc in cursor:
+        existing_targets.add(doc["_id"])
+
+    missing_ids = [doc_id for doc_id in all_target_ids if doc_id not in existing_targets]
+
+    logging.info(f"Total target documents: {len(all_target_ids)}")
+    logging.info(f"Already processed: {len(existing_targets)}")
+    logging.info(f"Remaining to process: {len(missing_ids)}")
+
+    logging.info("\nMissing Document IDs:")
+    for i in range(0, len(missing_ids), 50):
+        # Convert ObjectId to string explicitly
+        chunk = [str(doc_id) for doc_id in missing_ids[i:i+50]]
+        logging.info(", ".join(chunk))
+
+    with open('missing_document_ids.txt', 'w') as f:
+        for doc_id in missing_ids:
+            f.write(f"{doc_id}\n")
+    logging.info(f"\nFull list of missing IDs written to 'missing_document_ids.txt'")
+
+    return missing_ids
+
 async def process_target_document(doc_id, raw_db, executor, total_docs, progress_queue):
     start_doc_time = time.time()
     try:
-        meta_fetch_start = time.time()
         meta_doc = await raw_db.doc_meta.find_one({"_id": doc_id})
-        meta_fetch_time = time.time() - meta_fetch_start
-
-        data_fetch_start = time.time()
         data_doc = await raw_db.doc_data.find_one({"_id": doc_id})
-        data_fetch_time = time.time() - data_fetch_start
 
         if not meta_doc or not data_doc or "compressedText" not in data_doc:
             await progress_queue.put(1)
             return False, f"INCOMPLETE: Document {doc_id}"
 
-        decompress_start = time.time()
         decompressed_text = await asyncio.get_event_loop().run_in_executor(
             executor, decompress_text_sync, data_doc.get("compressedText"))
-        decompress_time = time.time() - decompress_start
 
         if not decompressed_text:
             await progress_queue.put(1)
             return False, f"DECOMPRESSION FAILED: {doc_id}"
 
-        extract_start = time.time()
         plain_text = await asyncio.get_event_loop().run_in_executor(
             executor, extract_plain_text_sync, decompressed_text)
-        extract_time = time.time() - extract_start
 
-        insert_start = time.time()
         new_doc = {
             "_id": doc_id,
             "decompressedText": plain_text,
@@ -121,17 +139,8 @@ async def process_target_document(doc_id, raw_db, executor, total_docs, progress
             "ngr": meta_doc.get("ngr"),
             "processed_timestamp": time.time()
         }
-        await raw_db.target_documents.insert_one(new_doc)
-        insert_time = time.time() - insert_start
 
-        doc_total_time = time.time() - start_doc_time
-        logging.info(f"Document {doc_id} Timing: "
-                     f"Meta: {meta_fetch_time:.4f}s, "
-                     f"Data: {data_fetch_time:.4f}s, "
-                     f"Decompress: {decompress_time:.4f}s, "
-                     f"Extract: {extract_time:.4f}s, "
-                     f"Insert: {insert_time:.4f}s, "
-                     f"Total: {doc_total_time:.4f}s")
+        await raw_db.target_documents.insert_one(new_doc)
 
         await progress_queue.put(1)
         return True, f"PROCESSED: {doc_id}"
@@ -161,40 +170,22 @@ async def progress_tracker(total_docs, progress_queue):
         if processed >= total_docs:
             break
 
-async def find_target_documents():
-    raw_db = db.client[db.db.name]
-
-    if "target_documents" not in await raw_db.list_collection_names():
-        await raw_db.create_collection("target_documents")
-
-    TARGET_IDS = await get_target_ids()
-
-    existing_targets = set()
-    cursor = raw_db.target_documents.find({}, {"_id": 1})
-    async for doc in cursor:
-        existing_targets.add(doc["_id"])
-
-    targets_to_process = [doc_id for doc_id in TARGET_IDS if doc_id not in existing_targets]
-
-    logging.info(f"Total target documents: {len(TARGET_IDS)}")
-    logging.info(f"Already processed: {len(existing_targets)}")
-    logging.info(f"Remaining to process: {len(targets_to_process)}")
-
-    if not targets_to_process:
-        logging.info("All target documents have already been processed.")
+async def process_missing_documents(raw_db, missing_ids):
+    if not missing_ids:
+        logging.info("No documents to process.")
         return
-
-    max_workers = min(8, len(targets_to_process))
-    logging.info(f"Using {max_workers} worker threads")
 
     progress_queue = asyncio.Queue()
 
-    progress_task = asyncio.create_task(progress_tracker(len(targets_to_process), progress_queue))
+    max_workers = min(8, len(missing_ids))
+    logging.info(f"Using {max_workers} worker threads")
+
+    progress_task = asyncio.create_task(progress_tracker(len(missing_ids), progress_queue))
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         tasks = [process_target_document(doc_id, raw_db, executor, 
-                                         len(targets_to_process), progress_queue) 
-                 for doc_id in targets_to_process]
+                                         len(missing_ids), progress_queue) 
+                 for doc_id in missing_ids]
         results = await asyncio.gather(*tasks)
 
     await progress_task
@@ -207,7 +198,19 @@ async def find_target_documents():
     logging.info(f"Unable to find or process: {missing_count} documents")
 
 async def main():
-    await find_target_documents()
+    raw_db = db.client[db.db.name]
+
+    if "target_documents" not in await raw_db.list_collection_names():
+        await raw_db.create_collection("target_documents")
+
+    all_target_ids = await get_target_ids()
+
+    missing_ids = await find_missing_document_ids(raw_db, all_target_ids)
+
+    if missing_ids:
+        await process_missing_documents(raw_db, missing_ids)
+    else:
+        logging.info("All documents have already been processed.")
 
 if __name__ == "__main__":
     asyncio.run(main())
